@@ -3,23 +3,14 @@ import './Header.css';
 import { Link } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import MenuIcon from '@material-ui/icons/Menu';
-import IconButton from '@material-ui/core/IconButton';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 
 function Header() {
     return (
         <nav className="header">
-            {/* <Link to="/">
+            <Link to="/">
                 <MenuIcon className="header__menuIcon" fontSize="large" />
-            </Link> */}
-            <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                onClick={handleDrawer}
-                edge="start"
-                className={clsx(classes.menuButton)}
-            >
-                <MenuIcon />
-            </IconButton>
+            </Link>
             <Link to="/" >
                 <img
                     className="header__logo"
@@ -32,10 +23,30 @@ function Header() {
                 <SearchIcon className="header__searchIcon" />
             </div>
             <div className="header__nav">
-                <Link>
+                <Link to="/login" className="header__link">
+                    <div className="header__option">
+                        <snap className="header__optionLineOne">Hello,Aman</snap>
+                        <snap className="header__optionLineTwo">Sign up</snap>
+                    </div>
                 </Link>
-                <Link></Link>
-                <Link></Link>
+                <Link to="/" className="header__link">
+                    <div className="header__option">
+                        <snap className="header__optionLineOne">Returns</snap>
+                        <snap className="header__optionLineTwo">& Orders</snap>
+                    </div>
+                </Link>
+                <Link to="/" className="header__link">
+                    <div className="header__option">
+                        <snap className="header__optionLineOne">Your</snap>
+                        <snap className="header__optionLineTwo">Prime</snap>
+                    </div>
+                </Link>
+                <Link to="/checkout" className="header__link">
+                    <div className="header__optionBasket">
+                        <ShoppingBasketIcon />
+                        <span>0</span>
+                    </div>
+                </Link>
             </div>
         </nav>
     )
