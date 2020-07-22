@@ -1,5 +1,23 @@
-.header__logo {
-    height: 10vh;
+.header {
+    background-color: #131921;
     display: flex;
-    justify-content: flex-start;
+    align-items: center;
+}
+
+.header__logo {
+    width: 100px;
+    margin:10px 15px 0px 12px;
+}
+.header__search {
+    display: flex;
+}
+.header__searchInput {
+    height: 12px;
+    padding: 10px;
+    border: none;
+    width: 100%;
+}
+.header__searchIcon {
+    background-color: #cd9042;
+    padding: 5px;
 }
