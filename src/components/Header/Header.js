@@ -25,26 +25,26 @@ function Header() {
             <div className="header__nav">
                 <Link to="/login" className="header__link">
                     <div className="header__option">
-                        <snap className="header__optionLineOne">Hello,Aman</snap>
-                        <snap className="header__optionLineTwo">Sign up</snap>
+                        <div className="header__optionLineOne">Hello,Aman</div>
+                        <div className="header__optionLineTwo">Sign up</div>
                     </div>
                 </Link>
                 <Link to="/" className="header__link">
                     <div className="header__option">
-                        <snap className="header__optionLineOne">Returns</snap>
-                        <snap className="header__optionLineTwo">& Orders</snap>
+                        <div className="header__optionLineOne">Returns</div>
+                        <div className="header__optionLineTwo">& Orders</div>
                     </div>
                 </Link>
                 <Link to="/" className="header__link">
                     <div className="header__option">
-                        <snap className="header__optionLineOne">Your</snap>
-                        <snap className="header__optionLineTwo">Prime</snap>
+                        <div className="header__optionLineOne">Your</div>
+                        <div className="header__optionLineTwo">Prime</div>
                     </div>
                 </Link>
                 <Link to="/checkout" className="header__link">
                     <div className="header__optionBasket">
                         <ShoppingBasketIcon />
-                        <span className="header__optionLineTwo header__optionBasketCount">0</span>
+                        <div className="header__optionLineTwo header__optionBasketCount">0</div>
                     </div>
                 </Link>
             </div>
