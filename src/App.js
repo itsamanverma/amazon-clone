@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import Headers from './components/Header/Header';
 import './App.css';
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
         <Switch>
           <Route path="/checkout">checkout</Route>
           <Route path="/login">login</Route>
-          <Route path="/">Homepage</Route>
+          <Route path="/"><Headers/>Homepage</Route>
         </Switch>
       </div>
     </Router>

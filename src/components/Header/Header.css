@@ -1,0 +1,5 @@
+.header__logo {
+    height: 10vh;
+    display: flex;
+    justify-content: flex-start;
+}
