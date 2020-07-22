@@ -12,9 +12,17 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/checkout">checkout</Route>
-          <Route path="/login">login</Route>
-          <Route path="/"><Headers/>Homepage</Route>
+          <Route path="/checkout">
+            <Headers />
+            checkout
+          </Route>
+          <Route path="/login">
+            login
+          </Route>
+          <Route path="/">
+            <Headers />
+            Homepage
+          </Route>
         </Switch>
       </div>
     </Router>
