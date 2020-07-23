@@ -5,7 +5,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import MenuIcon from '@material-ui/icons/Menu';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 
-function Header() {
+const Header = () => {
     return (
         <nav className="header">
             <Link to="/">
