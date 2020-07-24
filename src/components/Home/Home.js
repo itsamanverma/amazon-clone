@@ -43,7 +43,7 @@ const Home = () => {
                 />
                 <Product
                     id="pro5"
-                    title="SKETCHFAB Extra Bass 2.0 On-Ear Headphones with Tangle Free Cable, 3.5mm Jack, Headset with Mic for Phone Calls."
+                    title="HEEDERIN Men's Comfortable Mesh Lace up Sport Shoe."
                     price={20.56}
                     rating={4}
                     image={require('../../assests/pro5.jpg')}
@@ -52,7 +52,7 @@ const Home = () => {
             <div className="home__row">
                 <Product
                     id="pro6"
-                    title="SKETCHFAB Extra Bass 2.0 On-Ear Headphones with Tangle Free Cable, 3.5mm Jack, Headset with Mic for Phone Calls."
+                    title="Apple MacBook Pro (16-inch, 16GB RAM, 512GB Storage, 2.6GHz 9th Gen Intel Core i7) - Space Grey."
                     price={800.66}
                     rating={4}
                     image={require('../../assests/pro6.jpg')}
