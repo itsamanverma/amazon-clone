@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <div className="home">
             <img
-                src={require("../../assests/amazon-banner6.jpeg")}
+                src={require("../../assests/amazon-banner.jpeg")}
                 alt=""
                 className="home_image"
             />
