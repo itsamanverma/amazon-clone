@@ -3,6 +3,8 @@ import Icon from '@material-ui/core/Icon';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import './Product.css';
+import { useStateValue } from '../../StateProvider';
+
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -10,8 +12,27 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
 const Product = ({ id, title, price, rating, image }) => {
+
     const classes = useStyles();
+    const [{ basket }, dispatch] = useStateValue();
+
+    const addToBasket = () => {
+        //add item to basket
+        dispatch({
+            type: 'ADD_TO_BASKET',
+            item: {
+                id: id,
+                title: title,
+                price: price,
+                rating: rating,
+                image: Image,
+            }
+        })
+
+    }
+
     return (
         <div className="product" key={id}>
             <div className="project__info">
@@ -35,6 +56,7 @@ const Product = ({ id, title, price, rating, image }) => {
                 color="primary"
                 className={classes.button}
                 endIcon={<Icon>send</Icon>}
+                onClick={addToBasket}
             >
                 Add To Basket
             </Button>
