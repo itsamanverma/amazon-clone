@@ -18,11 +18,20 @@ const Checkout = () => {
                     <h4>Your Shopping Basket is Empty</h4>
                     <p>you have no items in your basket,so shop the items</p>
                 </div>
-            ):(
-                <div className="checkout__basket">
-                    <h3>Your shopping basket with items</h3>
-                </div>
-            )}
+            ) : (
+                    <div>
+                        <h4 className="checkout__title">Your shopping basket with items</h4>
+                        {basket.map(item => (
+                            <CheckoutProduct
+                                item={item.id}
+                                item={item.title}
+                                item={item.price}
+                                item={item.rating}
+                                item={item.image}
+                            />
+                        ))}
+                    </div>
+                )}
         </div>
     )
 }
