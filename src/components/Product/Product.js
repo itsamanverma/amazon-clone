@@ -17,7 +17,9 @@ const Product = ({ id, title, price, rating, image }) => {
 
     const classes = useStyles();
     const [{ basket }, dispatch] = useStateValue();
-
+    
+    // console.log(basket);
+    
     const addToBasket = () => {
         //add item to basket
         dispatch({
