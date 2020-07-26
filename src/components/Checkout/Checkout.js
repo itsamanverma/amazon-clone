@@ -17,12 +17,12 @@ const Checkout = () => {
                 />
                 {basket?.length === 0 ? (
                     <div className="checkout__empty">
-                        <h4>Your Shopping Basket is Empty</h4>
+                        <h2>Your Shopping Basket is Empty</h2>
                         <p>you have no items in your basket,so shop the items</p>
                     </div>
                 ) : (
                         <div>
-                            <h4 className="checkout__title">Your shopping basket with items</h4>
+                            <h2 className="checkout__title">Shopping Cart</h2>
                             {basket.map((item, index) => (
                                 <CheckoutProduct key={index}
                                     id={item.id}
@@ -35,8 +35,13 @@ const Checkout = () => {
                         </div>
                     )}
             </div>
+            {basket.length > 0 && (
+                <div className="checkout__right">
+                    <h2>SubTotal</h2>
+                </div>
+            )}
         </div>
-    )
+    );
 }
 
 export default Checkout;
