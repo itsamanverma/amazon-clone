@@ -1,9 +1,9 @@
 import React from 'react'
 
-function CheckoutProduct() {
+function CheckoutProduct({ id, title, price, rating, image }) {
     return (
-        <div>
-            
+        <div className="checkoutProduct">
+            <img src={image} alt="" />
         </div>
     )
 }
