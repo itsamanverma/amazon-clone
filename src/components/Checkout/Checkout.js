@@ -5,7 +5,8 @@ import CheckoutProduct from '../CheckoutProduct/CheckoutProduct';
 
 const Checkout = () => {
     const [{ basket }] = useStateValue();
-
+    console.log("checkout"+basket);
+    
     return (
         <div className="checkout">
             <img
