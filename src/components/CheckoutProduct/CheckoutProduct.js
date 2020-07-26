@@ -3,6 +3,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import './CheckoutProduct.css';
+import { useStateValue } from '../../StateProvider';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -12,7 +13,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CheckoutProduct = ({ id, title, price, rating, image }) => {
+
     const classes = useStyles();
+
+    const [{ basket }, dispatch] = useStateValue();
+    // console.log("checkoutProduct" + id, title, price, rating, image);
+
+    console.log(basket);
+
+    const removeItem = () => {
+        //remove the item from basket
+        dispatch({
+            type: 'REMOVE_FROM_BASKET',
+            id: id,
+        });
+    };
+
     return (
         <div className="checkoutProduct" key={id}>
             <img className="checkoutProduct__image" src={image} alt="" />
@@ -36,6 +52,7 @@ const CheckoutProduct = ({ id, title, price, rating, image }) => {
                     color="secondary"
                     className={classes.button}
                     startIcon={<DeleteIcon />}
+                    onClick={removeItem}
                 >
                     Remove Item
                 </Button>
@@ -44,4 +61,4 @@ const CheckoutProduct = ({ id, title, price, rating, image }) => {
     )
 }
 
-export default CheckoutProduct
+export default CheckoutProduct;

@@ -5,8 +5,8 @@ import CheckoutProduct from '../CheckoutProduct/CheckoutProduct';
 
 const Checkout = () => {
     const [{ basket }] = useStateValue();
-    console.log("checkout"+basket);
-    
+    console.log("checkout" + basket);
+
     return (
         <div className="checkout">
             <img
@@ -22,9 +22,9 @@ const Checkout = () => {
             ) : (
                     <div>
                         <h4 className="checkout__title">Your shopping basket with items</h4>
-                        {basket.map((item, index )=> (
+                        {basket.map((item, index) => (
                             <CheckoutProduct key={index}
-                                item={item.id}
+                                id={item.id}
                                 title={item.title}
                                 price={item.price}
                                 rating={item.rating}
