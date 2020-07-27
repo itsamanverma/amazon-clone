@@ -3,7 +3,14 @@ export const initialState = {
         {
             id: "pro1",
             title: "SKETCHFAB Extra Bass 2.0 On-Ear Headphones with Tangle Free Cable, 3.5mm Jack, Headset with Mic for Phone Calls.",
-            price: '11.96',
+            price: 11.96,
+            rating: 5,
+            image: '/media/aman/a9490b27-5ef4-4f31-a889-1b16e6841e22/Reactjs/amazon-clone/src/assests/pro1.jpg',
+        },
+        {
+            id: "pro1",
+            title: "SKETCHFAB Extra Bass 2.0 On-Ear Headphones with Tangle Free Cable, 3.5mm Jack, Headset with Mic for Phone Calls.",
+            price: 11.96,
             rating: 5,
             image: '/media/aman/a9490b27-5ef4-4f31-a889-1b16e6841e22/Reactjs/amazon-clone/src/assests/pro1.jpg',
         },
