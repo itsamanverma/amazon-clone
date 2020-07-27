@@ -14,21 +14,28 @@ const Login = () => {
             </Link>
 
             <div className='login__container'>
-                <h1>Sign up</h1>
+                <h1>Sign-In</h1>
                 <form>
                     <h5>E-mail</h5>
-                    <input type="text" />
+                    <input
+                        type="email"
+                        name="email"
+                    />
+
                     <h5>Password</h5>
-                    <input type="text" />
-                    <button>
+                    <input
+                        type="password"
+                        name="password"
+                    />
+                    <button className="login__continueButton">
                         Contiune
                     </button>
                 </form>
                 <p>
-                By continuing, you agree to Amazon's <a href="/help">Conditions of Use</a> and <a href="/help">Privacy Notice</a>.
+                    By continuing, you agree to Amazon's <a href="/help">Conditions of Use</a> and <a href="/help">Privacy Notice</a>.
                 </p>
-                <button>
-                    Create your Amazon account 
+                <button className="login__registerButton">
+                    Create your Amazon account
                 </button>
             </div>
         </div>
