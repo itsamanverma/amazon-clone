@@ -8,6 +8,7 @@ import Headers from './components/Header/Header';
 import './App.css';
 import Home from './components/Home/Home';
 import Checkout from './components/Checkout/Checkout';
+import Login from './pages/Login/Login';
 
 function App() {
   return (
@@ -15,15 +16,15 @@ function App() {
       <div className="App">
         <Switch>
           <Route path="/checkout">
-            <Headers />
+            <Headers  />
             <Checkout />
           </Route>
           <Route path="/login">
-            login
+            <Login />
           </Route>
           <Route path="/">
             <Headers />
-            <Home />
+            <Home    />
           </Route>
         </Switch>
       </div>

@@ -6,7 +6,7 @@ import { getBasketTotal } from '../../reducer';
 
 const Subtotal = () => {
 
-    const [{ basket }, dispatch] = useStateValue();
+    const [{ basket },] = useStateValue();
 
     return (
         <div className='subtotal'>
@@ -14,7 +14,7 @@ const Subtotal = () => {
                 renderText={(value) => (
                     <>
                         <p>
-                Subtotal ({basket.length} item): <strong>{value}</strong>
+                            Subtotal ({basket.length} item): <strong>{`${value}`}</strong>
                         </p>
                         <small className="subtotal__gift">
                             <input
