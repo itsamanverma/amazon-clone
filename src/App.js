@@ -4,7 +4,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import Headers from './components/Header/Header';
+import Header from './components/Header/Header';
 import './App.css';
 import Home from './components/Home/Home';
 import Checkout from './components/Checkout/Checkout';
@@ -16,15 +16,19 @@ function App() {
       <div className="App">
         <Switch>
           <Route path="/checkout">
-            <Headers  />
+            <Header  />
             <Checkout />
           </Route>
           <Route path="/login">
             <Login />
           </Route>
           <Route path="/">
-            <Headers />
+            <Header />
             <Home    />
+          </Route>
+          <Route path="/help">
+              <Header />
+              Amazon 
           </Route>
         </Switch>
       </div>
