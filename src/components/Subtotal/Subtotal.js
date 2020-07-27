@@ -1,6 +1,5 @@
 import React from 'react';
 import './Subtotal.css';
-import Button from '@material-ui/core/Button';
 import CurrencyFormat from 'react-currency-format'
 import { useStateValue } from '../../StateProvider';
 
@@ -30,9 +29,9 @@ const Subtotal = () => {
                 thousandSeparator={true}
                 prefix={"$"}
             />
-            <Button variant="outlined" color="primary">
+            <button variant="outlined" color="primary" className="subtotal__button">
                 Buy Now
-            </Button>
+            </button>
         </div>
     )
 }
