@@ -5,11 +5,17 @@ import SearchIcon from '@material-ui/icons/Search';
 import MenuIcon from '@material-ui/icons/Menu';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { useStateValue } from '../../StateProvider';
+import { auth } from '../../firebase';
 
 const Header = () => {
-    const [{ basket, /*user*/ }] = useStateValue();
+    const [{ basket, user }] = useStateValue();
     console.log(basket);
 
+    const login = () => {
+        if (user) {
+            auth.signOut();
+        }
+    }
     return (
         <nav className="header">
             <Link to="/">
@@ -27,10 +33,10 @@ const Header = () => {
                 <SearchIcon className="header__searchIcon" />
             </div>
             <div className="header__nav">
-                <Link to="/login" className="header__link">
-                    <div className="header__option">
-                        <div className="header__optionLineOne">Hello,Aman</div>
-                        <div className="header__optionLineTwo">Sign up</div>
+                <Link to={!user && "/login"} className="header__link">
+                    <div onClick={login} className="header__option">
+                        <div className="header__optionLineOne">Hello, {user?.email}</div>
+                        <div className="header__optionLineTwo">{user ? 'Sign out' : 'Sign up'}</div>
                     </div>
                 </Link>
                 <Link to="/" className="header__link">
