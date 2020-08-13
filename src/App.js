@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,14 +9,44 @@ import './App.css';
 import Home from './components/Home/Home';
 import Checkout from './components/Checkout/Checkout';
 import Login from './pages/Login/Login';
+import { useStateValue } from './StateProvider';
+import { auth } from './firebase';
 
 function App() {
+
+  const [{user}, dispatch] = useStateValue();
+  /* using the useEffect concept */
+  /*  */
+
+  useEffect(() => {
+    const unsubcribe = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        // user is logged in
+        dispatch({
+          type: "SET_USER",
+          user: authUser
+        });
+      } else {
+        dispatch({
+          type: "SET_USER",
+          user: null
+        });
+      }
+    });
+    return () => {
+      unsubcribe();
+    }
+  }, [dispatch]);
+
+  console.log(user);
+  
+
   return (
     <Router>
       <div className="App">
         <Switch>
           <Route path="/checkout">
-            <Header  />
+            <Header />
             <Checkout />
           </Route>
           <Route path="/login">
@@ -24,11 +54,11 @@ function App() {
           </Route>
           <Route path="/">
             <Header />
-            <Home    />
+            <Home />
           </Route>
           <Route path="/help">
-              <Header />
-              Amazon 
+            <Header />
+              Amazon
           </Route>
         </Switch>
       </div>

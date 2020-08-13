@@ -35,6 +35,7 @@ const Login = () => {
         auth.createUserWithEmailAndPassword(values.email, values.password)
             .then((auth) => {
                 // create a user & logged in , redirect to homepage
+                history.push("/");
             })
             .catch(error => alert(error.message));
     }
