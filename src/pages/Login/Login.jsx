@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 const Login = () => {
     return (
-        <div className='login'>
+        <div className='login'> 
             <Link to="/" >
                 <img
                     className="login__logo"
@@ -34,6 +34,7 @@ const Login = () => {
                 <p>
                     By continuing, you agree to Amazon's <a href="/help">Conditions of Use</a> and <a href="/help">Privacy Notice</a>.
                 </p>
+                <span className="login__span"><h5>New to Amazon?</h5></span>
                 <button className="login__registerButton">
                     Create your Amazon account
                 </button>
