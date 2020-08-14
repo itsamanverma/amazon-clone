@@ -62,9 +62,7 @@
     display: flex;
     flex: 1;
 }
-.mobile_header__search{
-    display: none;
-}
+
 .header__searchInput {
     height: 12px;
     padding: 10px;
@@ -76,38 +74,4 @@
     background-color: #cd9042;
     padding: 5px;
     height: 22px !important;
-}
-
-@media screen and (min-width: 360px) and (max-width: 640px) {
-    .header {
-        width: 100%;
-        height: 7vh;
-        margin: 0!important;
-    }
-    .header .header__menuIcon {
-        float: left;
-        padding: 2px 2px 2px 2px;
-    }
-    .header__logo {
-        width: 50px;
-        object-fit: contain;
-        margin: 8px 0px 0px 0px;
-    }
-    .header__search{
-        display: none;
-    }
-    .mobile_header__search {
-        display: flex;
-        margin-left: 5px;
-        margin-right: 5px;
-        margin-top: 2px;
-        padding: 2px 10px 5px 10px;
-        background-color: #131921
-    }
-    .mobile_header__link {
-        display: none;
-    }
-    .header__optionLineTwo {
-        font-size: 12px;
-    }
 }
