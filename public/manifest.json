@@ -1,19 +1,44 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "amazon-clone App",
+  "name": "amazon-shopping Sample App",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "amazon-logo120.png",
+      "type": "image/png",
+      "sizes": "120x120"
+    },
+    {
+      "src": "amazon-logo144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "amazon-logo152.png",
+      "type": "image/png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "amazon-logo167.png",
+      "type": "image/png",
+      "sizes": "167x167"
+    },
+    {
+      "src": "amazon-logo180.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "amazon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "amazon-logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "amazon-logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
