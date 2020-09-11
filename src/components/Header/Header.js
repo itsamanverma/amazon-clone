@@ -35,7 +35,7 @@ const Header = () => {
             <div className="header__nav">
                 <Link to={!user && "/login"} className="header__link mobile_header__link">
                     <div onClick={login} className="header__option">
-                        <div className="header__optionLineOne">Hello, {user?.email}</div>
+                        <div className="header__optionLineOne">Hello, {!user ? 'Guest' : user.email}</div>
                         <div className="header__optionLineTwo">{user ? 'Sign out' : 'Sign up'}</div>
                     </div>
                 </Link>
