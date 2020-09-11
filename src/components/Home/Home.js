@@ -21,7 +21,7 @@ const Home = () => {
                 <Product
                     id="pro2"
                     title="Apple Watch Series 5. The most advanced Apple Watch yet, featuring the Always-On Retina display."
-                    price={50.96}
+                    price={90.90}
                     rating={4}
                     image="https://images-na.ssl-images-amazon.com/images/I/71mbZF8PT1L._AC_SX522_.jpg"
                 />
@@ -30,14 +30,14 @@ const Home = () => {
                 <Product
                     id="pro3"
                     title="Woodlab Furniture Sheesham Wood Armchairs Outdoor Sofa Chairs for Living Room Dining Chiar for Home."
-                    price={14.96}
+                    price={34.96}
                     rating={3}
                     image="https://images-na.ssl-images-amazon.com/images/I/81wxVhDsO3L._AC_SX569_.jpg"
                 />
                 <Product
                     id="pro4"
                     title="Hero Kyoto 26T Single Speed Mountain Bike (Black, Ideal For : 12+ Years )."
-                    price={40.96}
+                    price={400.96}
                     rating={4}
                     image="https://images-na.ssl-images-amazon.com/images/I/91gEELfSWkL._AC_SX425_.jpg"
                 />
