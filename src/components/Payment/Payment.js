@@ -41,6 +41,8 @@ const Payment = () => {
         getClientSecret();
     }, [basket]);
 
+    console.log(" the client Secret ", clientSecret);
+
     const handleSubmit = async (event) => {
         event.preventDefault(); //this stop the refresh
         setProcessing(true);
