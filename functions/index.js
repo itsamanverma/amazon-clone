@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 const express = require('express');
 const cors = require('cors');
-const stripe = require("stripe")('sk_test_51HQbdZAxFXfllBdK9RPWU7gGqaehCqARq2ezR6RR40DsYVtPdStTmSYxI4sh8VKuejS0ecf4jdVuPp3Jnp6qukZ200brIw0CiV');
+const stripe = require("stripe")('sk_test_51HPvU9DFg5koCdLGeOEiFvwHat4v8eMjX6SY0YCwxPBQBUPhKy1fPVhiSM5cQtgW7QBG9ydQcXnW57TDxVE2f3H000HSfmEQZF');
 
 /* ~API~ */
 
@@ -15,20 +15,20 @@ app.use(express.json());
 /* ~API routes~ */
 app.get('/',(request, response) => response.status(200).send('hello React'));
 
-app.post('/payments/create', async( request, response) => {
+app.post('/payments/create', async ( request, response) => {
     const total = request.query.total;
 
     console.log('paymment Request Recieved for the amount !!', total);
 
-    const paymentIntent = await stripe.paymentIntent.create({
+    const paymentIntent = await stripe.paymentIntents.create({
         amount: total, /* subunits of the currency */
         currency: 'usd',
-    });
+    })
 
     /* ok ~ created */
     response.status(201).send({
         clientSecret: paymentIntent.client_secret,
-    })
+    });
 })
 /* ~Listen Command~ */
 exports.api = functions.https.onRequest(app);
