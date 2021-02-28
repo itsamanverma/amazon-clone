@@ -15,7 +15,8 @@ import { auth } from './firebase';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 
-const promise = loadStripe("pk_test_51HPvU9DFg5koCdLGJJbNo60QAU99BejacsvnKvT8xnCu1wFLCuQP3WBArscK3RvSQmSIB3N0Pbsc7TtbQiJ1vaOi00X9sIbazL");
+const promise = loadStripe("pk_test_51HQbdZAxFXfllBdK2a4aRUjx0gZdVkamCLibSXushOmmwgjfKQb7DeUPvB4lf9G9bDuxbAJuzRR5ILNOFzqUQK9t00pVwCvBso");
+
 function App() {
 
   const [{ user }, dispatch] = useStateValue();
@@ -27,8 +28,8 @@ function App() {
       if (authUser) {
         // user is logged in
         dispatch({
-          type: "SET_USER",
-          user: authUser
+          type: "SET_USER", 
+          user: authUser  
         });
       } else {
         dispatch({

@@ -43,7 +43,7 @@ const CheckoutProduct = ({ id, title, price, rating, image }) => {
                 <div className="checkoutProduct__rating">
                     {
                         Array(rating).fill().map((_, index) => (
-                            <p key={index}><span role="img" aria-label="star">⭐</span></p>
+                            <p key={index}><span role="img" aria-label="star">🌟</span></p>
                         ))
                     }
                 </div>

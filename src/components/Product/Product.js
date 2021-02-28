@@ -17,9 +17,9 @@ const Product = ({ id, title, price, rating, image }) => {
 
     const classes = useStyles();
     const [{ basket }, dispatch] = useStateValue();
-    
+
     console.log(basket);
-    
+
     const addToBasket = () => {
         //add item to basket
         dispatch({
@@ -46,7 +46,7 @@ const Product = ({ id, title, price, rating, image }) => {
                 <div className="product__rating">
                     {
                         Array(rating).fill().map((_, index) => (
-                            <p key={index}><span role="img" aria-label="star">⭐</span></p>
+                            <p key={index}><span role="img" aria-label="star">🌟</span></p>
                         ))
                     }
                 </div>
@@ -54,11 +54,11 @@ const Product = ({ id, title, price, rating, image }) => {
             <img src={image} alt="" />
             {/* <button>Add To Basket</button> */}
             <Button
-                variant="contained"
                 color="primary"
                 className={classes.button}
                 endIcon={<Icon>send</Icon>}
                 onClick={addToBasket}
+                variant="contained"
             >
                 Add To Basket
             </Button>
