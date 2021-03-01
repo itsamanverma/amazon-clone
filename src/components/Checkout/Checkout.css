@@ -5,6 +5,11 @@
     height: max-content;
 }
 
+.checkout__header{
+    margin: 0 10px;
+    color: #297575;
+}
+
 .checkout__title {
     margin-right: 10px;
     padding: 10px;

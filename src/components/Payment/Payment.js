@@ -27,7 +27,7 @@ const Payment = () => {
     const [clientSecret, setClientSecret] = useState(true);
 
     useEffect(() => {
-        /* generate the special stripe secret which allows us to change a customer1 */
+        /* generate the special stripe secret which allows us to change a customer */
         const getClientSecret = async () => {
             const response = await axios({
                 method: 'post',
@@ -44,7 +44,7 @@ const Payment = () => {
     console.log(" the client Secret>>>> ", clientSecret);
 
     const handleSubmit = async (event) => {
-        event.preventDefault(); //this stop the refresh
+        event.preventDefault(); //this stop the refresh /* do all the fancy stripe stuff */
         setProcessing(true);
 
         const payload = await stripe.confirmCardPayment(clientSecret, {
@@ -63,8 +63,8 @@ const Payment = () => {
 
     const handleChance = event => {
         event.preventDefault(); //this stop the refresh
-        /* Listen for changes in the CardElement 
-           & dieplay any error as the customer types their card details*/
+            /* Listen for changes in the CardElement 
+               & dieplay any error as the customer types their card details*/
         setDisabled(event.empty);
         setError(event.error ? event.error.message : "");
     }
@@ -83,7 +83,7 @@ const Payment = () => {
                         <h3>Delivery Address</h3>
                     </div>
                     <div className="payment__address">
-                        <p>{user?.email}</p>
+                        <p>{!user ? 'Guest' : user?.email}</p>
                         <p>ck 65/60 ,3 Badi Piyari </p>
                         <p>Varanasi, Uttar Pradesh 221001</p>
                     </div>
