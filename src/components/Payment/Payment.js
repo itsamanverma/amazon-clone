@@ -6,7 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import { getBasketTotal } from '../../reducer';
-import axios from 'axios';
+import axios from '../../services/axios';
 
 
 
@@ -32,7 +32,7 @@ const Payment = () => {
             const response = await axios({
                 method: 'post',
                 /* stripe expects the total in a currencies subunits */
-                url: `/payments/create?total=${getBasketTotal(basket) * 100 }`
+                url: `/payments/create?total=${getBasketTotal(basket) * 100}`
             });
 
             setClientSecret(response.data.clientSecret);
@@ -49,16 +49,16 @@ const Payment = () => {
 
         const payload = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
-               card: elements.getElement(CardElement) 
+                card: elements.getElement(CardElement)
             }
-        }).then(({paymentIntent}) => {
+        }).then(({ paymentIntent }) => {
             /* paymentIntent = payment Confirmation */
             setSucceeded(true);
             setError(null);
             setProcessing(false);
 
             history.replace('/orders');
-        }) 
+        })
     }
 
     const handleChance = event => {
