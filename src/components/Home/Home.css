@@ -4,38 +4,111 @@
     padding: 0 1rem;
 }
 
-/* Hero Image */
-.home_image {
+/* Home Carousel */
+.home__container {
     width: 100%;
-    height: auto;
-    max-height: 400px;
+}
+
+.home__slider {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    /* Mask image for the fade effect at the bottom */
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0));
+    z-index: 0;
+    margin-bottom: -150px;
+    /* Pull products up to overlap banner */
+}
+
+.home__slide {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.home__image {
+    width: 100%;
+    height: 600px;
+    /* Fixed height for banner area */
     object-fit: cover;
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-    z-index: -1;
-    margin-bottom: -100px;
+    display: block;
 }
 
-@media (max-width: 768px) {
-    .home_image {
-        max-height: 250px;
-        margin-bottom: -60px;
+/* Navigation Arrows */
+.home__arrow {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    z-index: 100;
+    padding: 0 10px;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    height: 200px;
+    /* Larger hit area */
+    display: flex;
+    align-items: center;
+}
+
+.home__arrow:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid white;
+}
+
+.home__arrow--left {
+    left: 0;
+}
+
+.home__arrow--right {
+    right: 0;
+}
+
+/* Gateway Cards Grid */
+.home__grid {
+    display: flex;
+    flex-wrap: wrap;
+    /* Fallback */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 20px;
+    z-index: 10;
+    position: relative;
+    /* top: -100px; Removed negative top as margin-bottom on slider handles overlap */
+    /* Wait, margin-bottom on slider is -150px. So grid sits there. */
+    /* Let's be explicit */
+}
+
+@media (min-width: 600px) {
+    .home__grid {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
-@media (max-width: 480px) {
-    .home_image {
-        max-height: 200px;
-        margin-bottom: -40px;
+@media (min-width: 1200px) {
+    .home__grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
-/* Product Rows - Mobile First Design */
+/* Product Rows */
 .home__row {
+    display: flex;
+    flex-wrap: wrap;
+    /* Fallback */
     display: grid;
     gap: 1.5rem;
-    margin: 2rem 0;
+    margin: 1rem 0;
+    /* Adjusted margin */
     padding: 0 1rem;
     z-index: 1;
+    position: relative;
+    /* To sit on top of banner fade */
 }
 
 /* Default: Single column for mobile */
@@ -43,60 +116,38 @@
     grid-template-columns: 1fr;
 }
 
-/* Two column layout for larger mobile/tablet */
+/* Responsive Grid */
 @media (min-width: 600px) {
-    .home__row--two {
+    .home__row {
         grid-template-columns: 1fr 1fr;
     }
 }
 
-/* Three column layout for tablet/desktop */
 @media (min-width: 900px) {
-    .home__row--three {
+    .home__row {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Featured product - full width */
-.home__row--featured {
-    grid-template-columns: 1fr;
-    justify-items: center;
-}
-
-@media (min-width: 768px) {
-    .home__row--featured {
-        max-width: 800px;
-        margin: 2rem auto;
-    }
-}
-
-/* Responsive spacing adjustments */
-@media (max-width: 480px) {
-    .home {
-        padding: 0 0.5rem;
-    }
-    
-    .home__row {
-        gap: 1rem;
-        margin: 1.5rem 0;
-        padding: 0;
-    }
-}
-
-@media (min-width: 768px) {
-    .home__row {
-        gap: 2rem;
-        margin: 3rem 0;
-    }
-}
-
 @media (min-width: 1200px) {
-    .home {
-        padding: 0 2rem;
-    }
-    
     .home__row {
-        gap: 2.5rem;
-        margin: 4rem 0;
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 columns on large screens */
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .home__image {
+        height: 300px;
+    }
+
+    .home__slider {
+        margin-bottom: -80px;
+    }
+
+    .home__arrow {
+        font-size: 2rem;
+        height: 100px;
     }
 }

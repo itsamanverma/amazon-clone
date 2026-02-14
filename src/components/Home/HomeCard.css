@@ -1,0 +1,59 @@
+.homeCard {
+    background-color: white;
+    z-index: 1;
+    border: none;
+    min-width: 250px;
+    padding: 20px;
+    margin: 10px;
+}
+
+.homeCard__title {
+    font-size: 21px;
+    line-height: 27px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #0F1111;
+}
+
+.homeCard__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.homeCard__item {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.homeCard__image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 4px;
+}
+
+.homeCard__label {
+    font-size: 13px;
+    color: #0F1111;
+}
+
+.homeCard__link {
+    color: #007185;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.homeCard__link:hover {
+    color: #C7511F;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .homeCard {
+        margin: 5px;
+    }
+}

@@ -13,6 +13,7 @@ import Profile from './pages/Profile/Profile';
 import Category from './pages/Category/Category';
 import Prime from './pages/Prime/Prime';
 import Sell from './pages/Sell/Sell';
+import CustomerService from './pages/CustomerService/CustomerService';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import PasswordReset from './pages/PasswordReset/PasswordReset';
 import Payment from './components/Payment/Payment';
@@ -70,6 +71,12 @@ function App() {
             <>
               <Header />
               <Sell />
+            </>
+          } />
+          <Route path="/category/customer-service" element={
+            <>
+              <Header />
+              <CustomerService />
             </>
           } />
           <Route path="/category/:categoryName" element={

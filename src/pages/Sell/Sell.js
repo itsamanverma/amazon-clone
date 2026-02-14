@@ -6,33 +6,36 @@ function Sell() {
         <div className="sell">
             <div className="sell__hero">
                 <div className="sell__heroContent">
-                    <h1>Become an Amazon Seller</h1>
+                    <h1>From home-grown to well-known with <span>Amazon.in</span></h1>
                     <p>
-                        Reach millions of customers, grow your business, and take advantage of our world-class logistics.
-                        Start your selling journey today.
+                        Connect with millions of customers from 18,000+ pincodes across India.
                     </p>
                     <button className="sell__ctaButton">Start Selling</button>
-                    <p style={{ marginTop: '15px', fontSize: '0.9rem' }}>* ₹2000 referral reward for new sellers</p>
                 </div>
                 <img
-                    src="/images/sell_hero.png"
+                    src="/images/abc_seller_hero.png"
                     alt="Amazon Seller"
                     className="sell__heroImage"
                 />
             </div>
 
-            <div className="sell__stats">
-                <div className="sell__statItem">
-                    <span className="sell__statNumber">Crores</span>
-                    <span className="sell__statLabel">of Customers</span>
+            <div className="sell__feeDrop">
+                <div className="sell__feeDropHeader">
+                    <span role="img" aria-label="sparkle">✨</span> Fee drop highlights
                 </div>
-                <div className="sell__statItem">
-                    <span className="sell__statNumber">28,000+</span>
-                    <span className="sell__statLabel">Pincodes Served</span>
-                </div>
-                <div className="sell__statItem">
-                    <span className="sell__statNumber">700+</span>
-                    <span className="sell__statLabel">Cities</span>
+                <div className="sell__stats">
+                    <div className="sell__statItem">
+                        <span className="sell__statNumber">0%</span>
+                        <span className="sell__statLabel">Referral fees on products under ₹300</span>
+                    </div>
+                    <div className="sell__statItem">
+                        <span className="sell__statNumber">₹65</span>
+                        <span className="sell__statLabel">National shipping rates now, from ₹77</span>
+                    </div>
+                    <div className="sell__statItem">
+                        <span className="sell__statNumber">Up to 90%</span>
+                        <span className="sell__statLabel">Savings in selling fees on the sale of second unit</span>
+                    </div>
                 </div>
             </div>
 
