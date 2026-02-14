@@ -1,0 +1,124 @@
+/* Subtotal Component - Responsive Design */
+.subtotal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-height: 200px;
+}
+
+@media (min-width: 769px) {
+    .subtotal {
+        width: 300px;
+        position: sticky;
+        top: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .subtotal {
+        width: 100%;
+        margin-top: 1rem;
+        padding: 1.5rem;
+        min-height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .subtotal {
+        padding: 1rem;
+        min-height: 120px;
+    }
+}
+
+.subtotal__content {
+    flex: 1;
+    margin-bottom: 1.5rem;
+}
+
+.subtotal__price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #232F3E;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .subtotal__price {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .subtotal__price {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+}
+
+.subtotal__gift {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    font-size: 1.3rem;
+    color: #666;
+}
+
+.subtotal__gift > input {
+    margin-right: 0.8rem;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .subtotal__gift {
+        font-size: 1.2rem;
+        justify-content: center;
+    }
+}
+
+.subtotal__button {
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    border-radius: 6px;
+    width: 100%;
+    height: 45px;
+    border: 1px solid #a88734;
+    color: #111;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: auto;
+}
+
+.subtotal__button:hover {
+    background: linear-gradient(to bottom, #f0c14b, #e2b73c);
+    border-color: #9c7e31;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtotal__button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    .subtotal__button {
+        height: 50px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .subtotal__button {
+        height: 45px;
+        font-size: 1.3rem;
+    }
+}

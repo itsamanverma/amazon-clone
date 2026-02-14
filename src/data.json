@@ -1,0 +1,67 @@
+{
+    "products": [
+        {
+            "_id": "pro1",
+            "image": "/assests/pro1.jpg",
+            "title": "SKETCHFAB Extra Bass 2.0 On-Ear Headphones with Tangle Free Cable, 3.5mm Jack, Headset with Mic for Phone Calls (Metal Yellow)",
+            "price": 11.96,
+            "rating": 5
+        },
+        {
+            "_id": "pro2",
+            "image": "/assests/pro2.jpg",
+            "title": "SKETCHFAB Extra Bass 2.0 On-Ear Headphones with Tangle Free Cable, 3.5mm Jack, Headset with Mic for Phone Calls (Metal Yellow)",
+            "price": 11.96,
+            "rating": 4
+        },
+        {
+            "_id": "pro3",
+            "image": "/assests/pro3.jpg",
+            "title": "SKETCHFAB Extra Bass 2.0 On-Ear Headphones with Tangle Free Cable, 3.5mm Jack, Headset with Mic for Phone Calls (Metal Yellow)",
+            "price": 11.96,
+            "rating": 5
+        },
+        {
+            "_id": "pro4",
+            "image": "/assests/pro4.jpg",
+            "title": "SKETCHFAB Extra Bass 2.0 On-Ear Headphones with Tangle Free Cable, 3.5mm Jack, Headset with Mic for Phone Calls (Metal Yellow)",
+            "price": 11.96,
+            "rating": 5
+        },
+        {
+            "_id": "pro5",
+            "image": "/assests/pro5.jpg",
+            "title": "SKETCHFAB Extra Bass 2.0 On-Ear Headphones with Tangle Free Cable, 3.5mm Jack, Headset with Mic for Phone Calls (Metal Yellow)",
+            "price": 11.96,
+            "rating": 5
+        },
+        {
+            "_id": "pro6",
+            "image": "/assests/pro6.jpg",
+            "title": "SKETCHFAB Extra Bass 2.0 On-Ear Headphones with Tangle Free Cable, 3.5mm Jack, Headset with Mic for Phone Calls (Metal Yellow)",
+            "price": 11.96,
+            "rating": 5
+        },
+        {
+            "_id": "pro7",
+            "image": "/assests/pro7.jpg",
+            "title": "SKETCHFAB Extra Bass 2.0 On-Ear Headphones with Tangle Free Cable, 3.5mm Jack, Headset with Mic for Phone Calls (Metal Yellow)",
+            "price": 11.96,
+            "rating": 5
+        },
+        {
+            "_id": "pro8",
+            "image": "/assests/pro8.jpg",
+            "title": "SKETCHFAB Extra Bass 2.0 On-Ear Headphones with Tangle Free Cable, 3.5mm Jack, Headset with Mic for Phone Calls (Metal Yellow)",
+            "price": 11.96,
+            "rating": 5
+        },
+        {
+            "_id": "pro9",
+            "image": "/assests/pro9.jpg",
+            "title": "SKETCHFAB Extra Bass 2.0 On-Ear Headphones with Tangle Free Cable, 3.5mm Jack, Headset with Mic for Phone Calls (Metal Yellow)",
+            "price": 11.96,
+            "rating": 5
+        }
+    ]
+}

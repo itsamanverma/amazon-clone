@@ -1,0 +1,40 @@
+.category {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
+    min-height: 500px;
+}
+
+.category__title {
+    margin: 20px;
+    font-size: 30px;
+    font-weight: 800;
+    text-transform: capitalize;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+
+.category__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 5px;
+}
+
+.category__row .product {
+    min-width: 280px;
+    max-width: 350px;
+    margin: 10px;
+    flex: 1 1 300px;
+    /* Grow, Shrink, Basis */
+}
+
+.category__noResults {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.5rem;
+    color: #555;
+}

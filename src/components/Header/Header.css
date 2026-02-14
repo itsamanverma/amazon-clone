@@ -1,0 +1,411 @@
+/* ===== AMAZON HEADER - ADAPTIVE & RESPONSIVE ===== */
+
+.header-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #131921;
+    padding: 0 10px;
+}
+
+/* Common Text Styles */
+.headerLink {
+    text-decoration: none;
+    color: white;
+}
+
+/* Mobile Specific Elements (Hidden by default on Desktop) */
+.mobile-only {
+    display: none !important;
+}
+
+.header__menuIcon {
+    display: none;
+    color: white;
+    margin-right: 10px;
+}
+
+.header__menuIcon>.MuiSvgIcon-root {
+    font-size: 28px !important;
+}
+
+.header__userIconMobile {
+    display: none !important;
+}
+
+/* Desktop Elements (Hidden on Mobile via media queries later) */
+.desktop-only {
+    display: flex;
+    /* Default for flex items */
+}
+
+/* Logo */
+.header__logoLink {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.header__logo {
+    width: 100px;
+    object-fit: contain;
+    margin-top: 10px;
+    /* Slight adjustment for alignment */
+    cursor: pointer;
+}
+
+.header__logo:hover {
+    border: 1px solid white;
+    border-radius: 2px;
+}
+
+/* Location (Desktop) */
+.header__option--location {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+    padding: 10px 5px;
+    cursor: pointer;
+}
+
+.header__option--location:hover {
+    border: 1px solid white;
+    border-radius: 2px;
+    padding: 9px 4px;
+}
+
+.footer__locationText {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.header__locationIcon {
+    font-size: 18px !important;
+    margin-left: -18px;
+    margin-right: 2px;
+}
+
+/* Search Bar */
+.header__search {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    border-radius: 4px;
+    height: 40px;
+    margin: 0 15px;
+}
+
+.header__search:focus-within {
+    box-shadow: 0 0 0 2px #f90;
+}
+
+.header__searchSelect {
+    background-color: #f3f3f3;
+    border: none;
+    border-right: 1px solid #cdcdcd;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    height: 40px;
+    padding: 0 5px;
+    color: #555;
+    font-size: 12px;
+    cursor: pointer;
+    outline: none;
+    max-width: 60px;
+}
+
+.header__searchSelect:hover {
+    background-color: #dadada;
+    color: #111;
+}
+
+.header__searchInput {
+    height: 100%;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    outline: none;
+}
+
+/* Fix corners if select is present */
+.header__searchSelect~.header__searchInput {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.header__searchIconContainer {
+    height: 40px;
+    background-color: #febd69;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.header__searchIconContainer:hover {
+    background-color: #f3a847;
+}
+
+.header__searchIcon {
+    color: #111;
+}
+
+
+/* Navigation Actions */
+.header__nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header__link {
+    color: white;
+    text-decoration: none;
+}
+
+.header__option {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+    padding: 10px 5px;
+    cursor: pointer;
+}
+
+.header__option:hover {
+    border: 1px solid white;
+    border-radius: 2px;
+    padding: 9px 4px;
+}
+
+.header__optionLineOne {
+    font-size: 12px;
+    color: #cccccc;
+    font-weight: 400;
+}
+
+.header__optionLineTwo {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Basket */
+.header__optionBasket {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 10px 5px;
+}
+
+.header__optionBasket:hover {
+    border: 1px solid white;
+    border-radius: 2px;
+    padding: 9px 4px;
+}
+
+.header__basketCount {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #f08804;
+}
+
+/* SubHeader (Bottom) */
+.header__bottom {
+    display: flex;
+    align-items: center;
+    background-color: #232f3e;
+    height: 40px;
+    padding-left: 20px;
+    color: white;
+    font-size: 14px;
+    overflow-x: auto;
+    /* Allow Scroll on small screens */
+    white-space: nowrap;
+}
+
+.header__bottom::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar */
+}
+
+.header__bottomItem {
+    margin-right: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    /* Ensure links inherit color and no decoration */
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.header__bottomItem:hover {
+    border: 1px solid white;
+    padding: 5px;
+    margin-right: 10px;
+    /* Adjust spacing when bordered */
+    border-radius: 2px;
+}
+
+
+/* Mobile Location Bar (Hidden on Desktop) */
+.header__mobileLocation {
+    background-color: #37475a;
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    display: none;
+    /* Default hidden */
+}
+
+.header__mobileLocationIcon {
+    font-size: 18px !important;
+    margin-right: 5px;
+}
+
+
+/* ===== RESPONSIVE / ADAPTIVE DESIGN ===== */
+
+/* Tablet & Mobile (< 768px) */
+@media (max-width: 768px) {
+    .header {
+        flex-wrap: wrap;
+        /* Allow multi-row */
+        height: auto;
+        padding-bottom: 10px;
+    }
+
+    /* Change Order of Items */
+    .header__menuIcon {
+        display: flex;
+        order: 1;
+        margin-right: 5px;
+    }
+
+    .header__logoLink {
+        order: 2;
+        margin-right: auto;
+        /* Push remaining items to right */
+    }
+
+    .header__nav {
+        order: 3;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Search Bar in its own row */
+    .header__search {
+        order: 4;
+        width: 100%;
+        flex: 0 0 100%;
+        /* Force wrap */
+        margin: 10px 0 0 0;
+    }
+
+    /* Hide Desktop Elements */
+    .desktop-only {
+        display: none !important;
+    }
+
+    /* Show Mobile Elements */
+    .mobile-only {
+        display: flex !important;
+    }
+
+    /* Adjust Input Radius since Select is hidden */
+    .header__searchInput {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        padding-left: 15px;
+        /* More padding on mobile */
+    }
+
+    /* Adjust Navigation for Profile Icon view */
+    .header__userOption {
+        flex-direction: row;
+        align-items: center;
+        margin-right: 0;
+    }
+
+    .header__optionLineOne,
+    .header__optionLineTwo {
+        /* On mobile, we might just show icon, or text. 
+           User screenshot shows: "Aman >" and Icon. 
+           I'll hide the standard text block structure and just show one line or icon.
+           Actually, let's keep it simple: Show Name + Icon, Hide "Sign In/Out" text if crowded.
+        */
+        display: none;
+        /* Hiding text for icon-only look in this iteration if desired? */
+    }
+
+    /* Wait, user screenshot has "Aman >" text. */
+    .header__userOption .header__optionLineOne {
+        display: block;
+        font-weight: 700;
+        font-size: 14px;
+        margin-right: 5px;
+    }
+
+    .header__userIconMobile {
+        display: block !important;
+        font-size: 28px !important;
+    }
+
+    /* Hide optional links strictly */
+    .header__link--optional {
+        display: none !important;
+    }
+
+    /* SubHeader adjustments */
+    .header__bottom {
+        padding-left: 10px;
+        background-color: #232f3e;
+        /* Dark blue/grey */
+        /* Match user screenshot gradient/color style? 
+           User screenshot row 3 looks like lighter blue? 
+           Actually row 3 is SubHeader. 
+           Row 4 is Location.
+        */
+        background: linear-gradient(to right, #2e4053, #232f3e);
+        height: 45px;
+    }
+
+    .header__mobileLocation {
+        display: flex !important;
+        background-color: #37475a;
+    }
+}
+
+/* Small Mobile (< 480px) adjustments */
+@media (max-width: 480px) {
+    .header__logo {
+        width: 80px;
+        margin-top: 15px;
+    }
+
+    .header__basketCount {
+        font-size: 14px;
+    }
+}

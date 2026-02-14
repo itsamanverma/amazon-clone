@@ -1,0 +1,220 @@
+/* Product Card - Mobile First Design */
+.product {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    min-height: 350px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.product:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Product Image */
+.product img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    mix-blend-mode: multiply;
+    border-radius: 4px;
+}
+
+/* Product Info Section */
+.product__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120px;
+    margin-bottom: 1rem;
+}
+
+.product__title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #232F3E;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product__price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #B12704;
+    margin: 0.5rem 0;
+}
+
+/* Star Rating */
+.product__rating {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    margin-bottom: 1rem;
+}
+
+.product__rating .star {
+    color: #FFA41C;
+    font-size: 1.6rem;
+}
+
+/* Add to Cart Button */
+.product>button {
+    background-color: #f0c14b;
+    border: 1px solid #a88734;
+    color: #111;
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: auto;
+}
+
+.product>button:hover {
+    background-color: #e2b73c;
+    border-color: #9c7e31;
+    transform: translateY(-1px);
+}
+
+.product>button:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+
+/* Small Mobile (320px-480px) */
+@media (max-width: 480px) {
+    .product {
+        padding: 1rem;
+        min-height: 300px;
+    }
+
+    .product>img {
+        height: 150px;
+    }
+
+    .product__title {
+        font-size: 1.2rem;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+
+    .product__price {
+        font-size: 1.6rem;
+    }
+
+    .product>button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.2rem;
+    }
+}
+
+/* Large Mobile/Small Tablet (481px-768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .product {
+        padding: 1.2rem;
+        min-height: 320px;
+    }
+
+    .product>img {
+        height: 180px;
+    }
+
+    .product__title {
+        font-size: 1.3rem;
+    }
+
+    .product__price {
+        font-size: 1.7rem;
+    }
+}
+
+/* Tablet/Desktop (769px-1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .product {
+        padding: 1.5rem;
+        min-height: 380px;
+    }
+
+    .product>img {
+        height: 220px;
+    }
+
+    .product__title {
+        font-size: 1.4rem;
+    }
+}
+
+/* Large Desktop (1025px+) */
+@media (min-width: 1025px) {
+    .product {
+        padding: 2rem;
+        min-height: 400px;
+    }
+
+    .product>img {
+        height: 250px;
+    }
+
+    .product__title {
+        font-size: 1.5rem;
+    }
+
+    .product__price {
+        font-size: 2rem;
+    }
+}
+
+/* Featured Product Styling */
+.product--featured {
+    grid-column: 1 / -1;
+    max-width: 800px;
+    justify-self: center;
+}
+
+@media (min-width: 768px) {
+    .product--featured {
+        flex-direction: row;
+        align-items: center;
+        padding: 3rem;
+    }
+
+    .product--featured img {
+        width: 50%;
+        height: 300px;
+        margin-right: 3rem;
+        margin-bottom: 0;
+    }
+
+    .product--featured .product__info {
+        width: 50%;
+        min-height: auto;
+    }
+
+    .product--featured .product__title {
+        font-size: 2rem;
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+    }
+
+    .product--featured .product__price {
+        font-size: 2.4rem;
+    }
+}

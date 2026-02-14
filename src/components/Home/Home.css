@@ -1,0 +1,102 @@
+.home {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Hero Image */
+.home_image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    z-index: -1;
+    margin-bottom: -100px;
+}
+
+@media (max-width: 768px) {
+    .home_image {
+        max-height: 250px;
+        margin-bottom: -60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home_image {
+        max-height: 200px;
+        margin-bottom: -40px;
+    }
+}
+
+/* Product Rows - Mobile First Design */
+.home__row {
+    display: grid;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 0 1rem;
+    z-index: 1;
+}
+
+/* Default: Single column for mobile */
+.home__row {
+    grid-template-columns: 1fr;
+}
+
+/* Two column layout for larger mobile/tablet */
+@media (min-width: 600px) {
+    .home__row--two {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Three column layout for tablet/desktop */
+@media (min-width: 900px) {
+    .home__row--three {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Featured product - full width */
+.home__row--featured {
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+@media (min-width: 768px) {
+    .home__row--featured {
+        max-width: 800px;
+        margin: 2rem auto;
+    }
+}
+
+/* Responsive spacing adjustments */
+@media (max-width: 480px) {
+    .home {
+        padding: 0 0.5rem;
+    }
+    
+    .home__row {
+        gap: 1rem;
+        margin: 1.5rem 0;
+        padding: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .home__row {
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .home {
+        padding: 0 2rem;
+    }
+    
+    .home__row {
+        gap: 2.5rem;
+        margin: 4rem 0;
+    }
+}
