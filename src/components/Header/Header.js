@@ -13,6 +13,7 @@ import { signOut } from 'firebase/auth';
 const Header = () => {
     const [{ basket, user }] = useStateValue();
     const [location, setLocation] = useState({ city: 'Select your', pincode: 'address' });
+    const [showProfileModal, setShowProfileModal] = useState(false);
 
     useEffect(() => {
         // Request location on component mount
@@ -116,17 +117,94 @@ const Header = () => {
                             <span className="header__optionLineOne">
                                 Hello, {getUserName()}
                             </span>
+                            <span className="header__optionLineTwo">Account & Lists</span>
                         </Link>
 
-                        {user ? (
-                            <div onClick={handleAuthentication} className="header__link" style={{ cursor: 'pointer' }}>
-                                <span className="header__optionLineTwo">Sign Out</span>
+                        <div className="nav__dropdown">
+                            <div className="nav__dropdownArrow"></div>
+
+                            <div className="nav__dropdownContainer">
+                                {/* Top Section: Buy Again and Profile Header */}
+                                <div className="nav__dropdownTop">
+                                    <div className="nav__buyAgain">
+                                        <div className="nav__buyAgainHeader">
+                                            <h3>Buy it again</h3>
+                                            <Link to="/orders">View All & Manage</Link>
+                                        </div>
+                                        <div className="nav__buyAgainList">
+                                            <div className="nav__buyAgainItem">
+                                                <img src="/images/pro_headphones.png" alt="Headphones" />
+                                                <div className="nav__buyAgainDetails">
+                                                    <p>Sony Headphones</p>
+                                                    <span className="nav__price">₹990.00</span>
+                                                    <button className="nav__addToCartBtn">Add to cart</button>
+                                                </div>
+                                            </div>
+                                            <div className="nav__buyAgainItem">
+                                                <img src="/images/pro_shoes.png" alt="Shoes" />
+                                                <div className="nav__buyAgainDetails">
+                                                    <p>Running Shoes</p>
+                                                    <span className="nav__price">₹799.00</span>
+                                                    <button className="nav__addToCartBtn">Add to cart</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="nav__profileHeaderContainer">
+                                        <div className="nav__profileHeader">
+                                            <div className="nav__profileInfo">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="Profile" className="nav__avatar" />
+                                                <div>
+                                                    <h3>{getUserName()}</h3>
+                                                    <p>Account holder</p>
+                                                </div>
+                                            </div>
+                                            <span
+                                                className="nav__manageProfiles"
+                                                onClick={() => setShowProfileModal(true)}
+                                                style={{ cursor: 'pointer' }}
+                                            >
+                                                Manage Profiles ›
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="nav__dropdownColumns">
+                                    <div className="nav__col">
+                                        <h3>Your Lists</h3>
+                                        <Link to="/wishlist">Shopping List</Link>
+                                        <Link to="/wishlist">Create a Wish List</Link>
+                                        <Link to="/wishlist">Wish from Any Website</Link>
+                                        <Link to="/wishlist">Baby Wishlist</Link>
+                                        <Link to="/wishlist">Discover Your Style</Link>
+                                        <Link to="/wishlist">Explore Showroom</Link>
+                                    </div>
+                                    <div className="nav__col nav__borderLeft">
+                                        <h3>Your Account</h3>
+                                        <Link to="/profile">Your Account</Link>
+                                        <Link to="/orders">Your Orders</Link>
+                                        <Link to="/wishlist">Your Wish List</Link>
+                                        <Link to="/profile">Keep shopping for</Link>
+                                        <Link to="/profile">Your Recommendations</Link>
+                                        <Link to="/category/prime">Your Prime Membership</Link>
+                                        <Link to="/profile">Your Prime Video</Link>
+                                        <Link to="/profile">Your Subscribe & Save Items</Link>
+                                        <Link to="/profile">Memberships & Subscriptions</Link>
+                                        <Link to="/profile">Your Seller Account</Link>
+                                        <Link to="/profile">Content Library</Link>
+                                        <Link to="/profile">Devices</Link>
+                                        <Link to="/profile">Register for a free Business Account</Link>
+                                        {user ? (
+                                            <div onClick={handleAuthentication} className="nav__signOut">Sign Out</div>
+                                        ) : (
+                                            <Link to="/login" className="nav__signOut">Sign In</Link>
+                                        )}
+                                    </div>
+                                </div>
                             </div>
-                        ) : (
-                            <Link to="/login" className="header__link">
-                                <span className="header__optionLineTwo">Sign In</span>
-                            </Link>
-                        )}
+                        </div>
 
                         <Link to={!user ? "/login" : "/profile"} className="header__link mobile-only">
                             <PersonOutlineIcon className="header__userIconMobile" />
@@ -182,6 +260,34 @@ const Header = () => {
                         : (location.pincode ? `${location.city}, ${location.pincode}` : location.city)}
                 </span>
             </div>
+
+            {/* Profile Selection Modal */}
+            {showProfileModal && (
+                <div className="modal-overlay" onClick={() => setShowProfileModal(false)}>
+                    <div className="modal-content" onClick={e => e.stopPropagation()}>
+                        <div className="modal-header">
+                            <h3>Who is shopping?</h3>
+                            <span className="close-modal" onClick={() => setShowProfileModal(false)}>&times;</span>
+                        </div>
+                        <div className="modal-body">
+                            <div className="profile-card-modal">
+                                <div className="profile-card-left">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="Profile" className="modal-avatar" />
+                                    <div className="profile-card-info">
+                                        <div className="profile-name">{getUserName()}</div>
+                                        <div className="profile-type">Account holder</div>
+                                    </div>
+                                </div>
+                                <Link to="/profile" className="profile-view-btn" onClick={() => setShowProfileModal(false)}>View</Link>
+                            </div>
+                            <div className="add-profile">
+                                <span className="plus-icon">+</span>
+                                <span>Add profile</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

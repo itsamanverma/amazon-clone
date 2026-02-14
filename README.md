@@ -3,7 +3,7 @@
 A full-featured Amazon clone built with React 18, Firebase v10, and modern responsive design principles. Features complete authentication, shopping cart, payment processing, and adaptive UI components.
 
 ## 🚀 **Live Demo**
-**Live URL**: [https://clone-9b0b1.web.app](https://clone-9b0b1.web.app)
+**Live URL**: [https://clone-v2-dc6f7.web.app/](https://clone-v2-dc6f7.web.app/)
 
 > **⚠️ Security Warning Notice**: Due to Google Safe Browsing false positives, some browsers may show security warnings. This is caused by legitimate React framework code containing "javascript:" references. The site is completely safe - this is a known issue with newly deployed React apps. Use incognito mode or try different browsers if needed.
 

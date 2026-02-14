@@ -48,14 +48,10 @@ function ProductDetail() {
 
     if (!product) return <div className="productDetail__loading">Loading...</div>;
 
-    // Mock images array (using the main image multiple times)
-    // In a real app, product.images would exist.
-    const images = [
-        product.image,
-        product.image,
-        product.image,
-        product.image
-    ];
+    // Use product.images if available, otherwise fallback to repeating main image
+    const images = product.images && product.images.length > 0
+        ? product.images
+        : [product.image, product.image, product.image, product.image];
 
     const features = [
         "Experience premium quality with exceptional durability.",

@@ -151,3 +151,13 @@
         height: 100px;
     }
 }
+
+.home__rowTitle {
+    margin: 20px 20px 10px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    z-index: 1;
+    position: relative;
+    /* To be above banner mask if needed, though rows are handled */
+}

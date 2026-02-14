@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import Product from '../Product/Product';
 import HomeCard from './HomeCard';
+import products from '../../utils/productData';
 
 const Home = () => {
     const [currentSlide, setCurrentSlide] = React.useState(0);
@@ -14,24 +15,24 @@ const Home = () => {
 
     // Dummy data for Home Cards
     const card1 = [
-        { title: "Samsung Galaxy A55", image: "/images/card_smartphone.png" },
-        { title: "iPhone 17 Pro Max", image: "/images/card_iphone.png" },
-        { title: "Samsung Galaxy A35", image: "/images/card_samsung_a35.png" },
-        { title: "Samsung Galaxy M56", image: "/images/card_samsung_m56.png" }
+        { title: "Samsung Galaxy A55", image: "/images/card_smartphone.png", link: "/product/pro4" },
+        { title: "iPhone 17 Pro Max", image: "/images/card_iphone.png", link: "/product/pro5" },
+        { title: "Samsung Galaxy A35", image: "/images/card_samsung_a35.png", link: "/product/pro4" },
+        { title: "Samsung Galaxy M56", image: "/images/card_samsung_m56.png", link: "/product/pro4" }
     ];
 
     const card2 = [
-        { title: "Appliances", image: "/images/banner_appliances.png" },
-        { title: "Men's Fashion", image: "/images/pro_shoes.png" },
-        { title: "Smartwatches", image: "/images/apple_watch_ultra.png" },
-        { title: "Keyboards", image: "/images/card_keyboard.png" }
+        { title: "Appliances", image: "/images/banner_appliances.png", link: "/category/home" },
+        { title: "Men's Fashion", image: "/images/pro_shoes.png", link: "/category/fashion" },
+        { title: "Smartwatches", image: "/images/apple_watch_ultra.png", link: "/product/pro2" },
+        { title: "Keyboards", image: "/images/card_keyboard.png", link: "/category/electronics" }
     ];
 
     const card3 = [
-        { title: "Furniture", image: "/images/pro_armchair.png" },
-        { title: "Headphones", image: "/images/pro_headphones.png" },
-        { title: "Kitchen Appliances", image: "/images/banner_appliances.png" },
-        { title: "Screen Guards", image: "/images/card_iphone.png" }
+        { title: "Furniture", image: "/images/pro_armchair.png", link: "/product/pro3" },
+        { title: "Headphones", image: "/images/pro_headphones.png", link: "/product/pro1" },
+        { title: "Kitchen Appliances", image: "/images/banner_appliances.png", link: "/category/home" },
+        { title: "Screen Guards", image: "/images/card_iphone.png", link: "/category/mobiles" }
     ];
 
     React.useEffect(() => {
@@ -48,6 +49,25 @@ const Home = () => {
     const prevSlide = () => {
         setCurrentSlide(prev => (prev === 0 ? banners.length - 1 : prev - 1));
     };
+
+    // Helper to render a Product component
+    const renderProduct = (product) => (
+        <Product
+            key={product.id}
+            id={product.id}
+            title={product.title}
+            price={product.price}
+            rating={product.rating}
+            image={product.image}
+        />
+    );
+
+    // Filter products by category
+    const electronics = products.filter(p => p.category === "electronics");
+    const mobiles = products.filter(p => p.category === "mobiles");
+    const fashion = products.filter(p => p.category === "fashion");
+    const home = products.filter(p => p.category === "home" || p.category === "furniture");
+    const sports = products.filter(p => p.category === "sports");
 
     return (
         <div className="home">
@@ -77,56 +97,67 @@ const Home = () => {
 
                 {/* Gateway Cards Grid */}
                 <div className="home__grid">
-                    <HomeCard title="Pick up where you left off" items={card1} linkText="See more" />
-                    <HomeCard title="Keep shopping for" items={card2} linkText="View your browsing history" />
-                    <HomeCard title="Categories to explore" items={card3} linkText="See more" />
-                    <HomeCard title="Electronics & Accessories" items={card1} linkText="See all offers" />
+                    <HomeCard title="Pick up where you left off" items={card1} linkText="See more" link="/category/mobiles" />
+                    <HomeCard title="Keep shopping for" items={card2} linkText="View your browsing history" link="/profile" />
+                    <HomeCard title="Categories to explore" items={card3} linkText="See more" link="/category/prime" />
+                    <HomeCard title="Electronics & Accessories" items={card1} linkText="See all offers" link="/category/electronics" />
                 </div>
             </div>
+
+            {/* Product Rows */}
+            {/* Electronics (Split into rows if many) */}
+            <h3 className="home__rowTitle">Best Sellers in Electronics</h3>
             <div className="home__row">
-                <Product
-                    id="pro1"
-                    title="SKETCHFAB Extra Bass 2.0 On-Ear Headphones with Tangle Free Cable, 3.5mm Jack, Headset with Mic for Phone Calls."
-                    price={1196.00}
-                    rating={5}
-                    image="/images/pro_headphones.png"
-                />
-                <Product
-                    id="pro2"
-                    title="Apple Watch Series 5. The most advanced Apple Watch yet, featuring the Always-On Retina display."
-                    price={20500.00}
-                    rating={4}
-                    image="/images/apple_watch_ultra.png"
-                />
-                <Product
-                    id="pro3"
-                    title="Woodlab Furniture Sheesham Wood Armchairs Outdoor Sofa Chairs for Living Room Dining Chiar for Home."
-                    price={3500.00}
-                    rating={3}
-                    image="/images/pro_armchair.png"
-                />
-                <Product
-                    id="pro4"
-                    title="Hero Kyoto 26T Single Speed Mountain Bike (Black, Ideal For : 12+ Years )."
-                    price={4999.00}
-                    rating={4}
-                    image="/images/pro_bike.png"
-                />
-                <Product
-                    id="pro5"
-                    title="HEEDERIN Men's Comfortable Mesh Lace up Sport Shoe."
-                    price={799.00}
-                    rating={4}
-                    image="/images/pro_shoes.png"
-                />
-                <Product
-                    id="pro6"
-                    title="Apple MacBook Pro (16-inch, 16GB RAM, 512GB Storage, 2.6GHz 9th Gen Intel Core i7) - Space Grey."
-                    price={189900.00}
-                    rating={4}
-                    image="/images/pro_macbook.png"
-                />
+                {electronics.slice(0, 4).map(renderProduct)}
             </div>
+            {electronics.length > 4 && (
+                <div className="home__row">
+                    {electronics.slice(4, 8).map(renderProduct)}
+                </div>
+            )}
+
+            {/* Mobiles */}
+            <h3 className="home__rowTitle">Latest Mobiles</h3>
+            <div className="home__row">
+                {mobiles.slice(0, 4).map(renderProduct)}
+            </div>
+            {mobiles.length > 4 && (
+                <div className="home__row">
+                    {mobiles.slice(4, 8).map(renderProduct)}
+                </div>
+            )}
+
+            {/* Fashion */}
+            <h3 className="home__rowTitle">Fashion & Accessories</h3>
+            <div className="home__row">
+                {fashion.slice(0, 4).map(renderProduct)}
+            </div>
+            {fashion.length > 4 && (
+                <div className="home__row">
+                    {fashion.slice(4, 8).map(renderProduct)}
+                </div>
+            )}
+
+            {/* Home & Kitchen */}
+            <h3 className="home__rowTitle">Home & Kitchen Essentials</h3>
+            <div className="home__row">
+                {home.slice(0, 4).map(renderProduct)}
+            </div>
+            {home.length > 4 && (
+                <div className="home__row">
+                    {home.slice(4, 8).map(renderProduct)}
+                </div>
+            )}
+
+            {/* Sports filters */}
+            {sports.length > 0 && (
+                <>
+                    <h3 className="home__rowTitle">Sports & Outdoors</h3>
+                    <div className="home__row">
+                        {sports.map(renderProduct)}
+                    </div>
+                </>
+            )}
         </div>
     )
 }

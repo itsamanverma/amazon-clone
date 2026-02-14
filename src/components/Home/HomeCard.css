@@ -52,6 +52,17 @@
     text-decoration: underline;
 }
 
+.homeCard__itemLink {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.homeCard__itemLink:hover .homeCard__label {
+    color: #007185;
+}
+
 @media (max-width: 600px) {
     .homeCard {
         margin: 5px;

@@ -2,103 +2,285 @@
     display: flex;
     justify-content: center;
     padding: 20px;
-    background-color: #EAEDED;
+    background-color: #fff;
     min-height: 100vh;
 }
 
-.profile__container {
-    background-color: white;
-    padding: 20px;
-    border: 1px solid lightgray;
-    border-radius: 4px;
+.profile__editContainer {
     width: 100%;
-    max-width: 600px;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.profile__title {
-    font-size: 28px;
+.profile__logoContainer {
+    margin-bottom: 20px;
+}
+
+.profile__logo {
+    width: 100px;
+    object-fit: contain;
+}
+
+.profile__card {
+    width: 100%;
+    border: 1px solid lightgray;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.profile__card h1 {
     font-weight: 500;
-    border-bottom: 1px solid lightgray;
-    padding-bottom: 10px;
     margin-bottom: 20px;
 }
 
-.profile__section {
-    margin-bottom: 20px;
-}
-
-.profile__label {
-    font-weight: 700;
+.profile__form h5 {
     margin-bottom: 5px;
-    display: block;
-    color: #111;
-}
-
-.profile__value {
-    font-size: 16px;
-    margin-bottom: 10px;
-    display: block;
-    color: #333;
 }
 
 .profile__input {
-    width: 100%;
-    padding: 10px;
+    height: 30px;
     margin-bottom: 10px;
+    background-color: white;
+    width: 98%;
     border: 1px solid #a6a6a6;
     border-radius: 3px;
-    font-size: 14px;
+    padding-left: 5px;
 }
 
-.profile__input:focus {
-    border-color: #e77600;
-    box-shadow: 0 0 3px 2px rgba(228, 121, 17, .5);
-    outline: none;
-}
-
-.profile__buttons {
+.profile__row {
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    gap: 10px;
 }
 
-.profile__editButton,
 .profile__saveButton {
     background: #f0c14b;
+    border-radius: 2px;
+    width: 100%;
+    height: 30px;
     border: 1px solid;
     margin-top: 10px;
     border-color: #a88734 #9c7e31 #846a29;
-    color: #111;
+    cursor: pointer;
+}
+
+.profile__cancelButton {
+    background: #e7e9ec;
+    border-radius: 2px;
+    width: 100%;
+    height: 30px;
+    border: 1px solid #adb1b8 #a2a6ac #8d9096;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* ===== NEW PROFILE UI STYLES ===== */
+.profile__container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.profile__headerMain {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile__avatarSection {
+    text-align: center;
+    position: relative;
+}
+
+.profile__avatarLarge {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+}
+
+.profile__nameContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile__nameContainer h1 {
+    font-size: 28px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.profile__editIcon {
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    /* Per screenshot pen icon border? */
+    border-radius: 50%;
+    /* Assume circle or simple icon */
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile__location {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.profile__contentMain h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.profile__subtitle {
+    font-size: 14px;
+    color: #565959;
+    margin-bottom: 20px;
+}
+
+.profile__tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 25px;
+}
+
+.profile__tab {
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #565959;
+}
+
+.profile__tab.active {
+    border-bottom: 3px solid #007185;
+    color: #000;
+    font-weight: 700;
+}
+
+.profile__sectionCard {
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px;
+    background: white;
+}
+
+.profile__sectionCard h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.profile__preferenceRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f2f2f2;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.profile__preferenceRow:hover {
+    color: #c7511f;
+}
+
+.arrow-down {
+    color: #555;
+    font-size: 12px;
+}
+
+.profile__smallText {
+    font-size: 14px;
+    color: #565959;
+    margin-bottom: 15px;
+}
+
+.profile__subTabs {
+    display: flex;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile__subTabs span {
     padding: 8px 15px;
     cursor: pointer;
-    border-radius: 3px;
     font-size: 14px;
+    margin-right: 15px;
+}
+
+.profile__subTabs span.active {
+    border-bottom: 2px solid #007185;
+    color: #007185;
+    font-weight: 700;
+}
+
+.profile__tabHeader {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.profile__tabHeader h3 {
+    margin: 0;
+    cursor: pointer;
+    color: #565959;
+    border-bottom: 3px solid transparent;
+    padding-bottom: 5px;
+}
+
+.profile__tabHeader h3.active {
+    color: #000;
+    border-bottom: 3px solid #007185;
+}
+
+.profile__interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.profile__interestChip {
+    background: white;
+    border: 1px solid #888C8C;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(213, 217, 217, .5);
+    transition: background 0.2s;
+}
+
+.profile__interestChip:hover {
+    background: #f7f7f7;
+}
+
+.profile__saveInterestBtn {
+    margin-top: 20px;
+    background: #ffd814;
+    border: 1px solid #fcd200;
+    border-radius: 20px;
+    padding: 8px 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(213, 217, 217, .5);
 }
 
 .profile__signOutButton {
-    background: #EAEDED;
-    border: 1px solid #dcdcdc;
-    margin-top: 10px;
-    padding: 8px 15px;
+    background: #f0c14b;
+    border: 1px solid #a88734;
+    padding: 5px 10px;
     cursor: pointer;
-    border-radius: 3px;
-    font-size: 14px;
-}
-
-.profile__buttons button:hover {
-    opacity: 0.9;
-}
-
-.profile__error {
-    color: red;
-    font-size: 12px;
-    margin-bottom: 10px;
-}
-
-.profile__success {
-    color: green;
-    font-size: 12px;
-    margin-bottom: 10px;
 }
