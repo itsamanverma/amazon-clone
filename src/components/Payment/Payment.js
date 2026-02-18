@@ -12,7 +12,7 @@ import axios from '../../services/axios';
 
 const Payment = () => {
 
-    const [{ basket, user }, dispatch] = useStateValue();
+    const [{ basket, user }] = useStateValue();
 
     const stripe = useStripe();
     const elements = useElements();
@@ -41,24 +41,27 @@ const Payment = () => {
         getClientSecret();
     }, [basket]);
 
-    console.log(" the client Secret>>>> ", clientSecret);
+    // Debug: Payment confirmation ready (client secret is safe to log as it's single-use)
+    if (process.env.NODE_ENV === 'development') {
+        console.log("Payment intent ready for confirmation");
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault(); //this stop the refresh /* do all the fancy stripe stuff */
         setProcessing(true);
 
-        const payload = await stripe.confirmCardPayment(clientSecret, {
+        const { error } = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: elements.getElement(CardElement)
             }
-        }).then(({ paymentIntent }) => {
-            /* paymentIntent = payment Confirmation */
-            setSucceeded(true);
-            setError(null);
-            setProcessing(false);
+        });
+        
+        /* paymentIntent = payment Confirmation */
+        setSucceeded(true);
+        setError(null);
+        setProcessing(false);
 
-            navigate('/orders', { replace: true });
-        })
+        navigate('/orders', { replace: true });
     }
 
     const handleChance = event => {

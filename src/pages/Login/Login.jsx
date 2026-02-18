@@ -345,7 +345,7 @@ const Login = () => {
                         <div className='login__footer'>
                             <p>
                                 By {isRegisterMode ? 'creating an account' : 'signing in'}, you agree to our Demo Application <br />
-                                <a href="#" className='login__link'>Terms of Service</a> and <a href="#" className='login__link'>Privacy Policy</a>.
+                                <button className='login__link' type="button" onClick={() => console.log('Terms clicked')}>Terms of Service</button> and <button className='login__link' type="button" onClick={() => console.log('Privacy clicked')}>Privacy Policy</button>.
                             </p>
 
                             {isRegisterMode ? (

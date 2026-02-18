@@ -122,7 +122,7 @@ function Prime() {
                 </div>
                 <img
                     className="prime__heroImage"
-                    src="/images/prime_box.png"
+                    src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=400&h=300&fit=crop&crop=center"
                     alt="Prime Box"
                 />
             </div>
@@ -203,17 +203,17 @@ function Prime() {
                 <h2>Check out what's included with Prime:</h2>
                 <div className="prime__benefitsGrid">
                     <div className="prime__benefitCard">
-                        <img src="/images/prime_delivery.png" alt="Delivery" />
+                        <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=200&h=150&fit=crop&crop=center" alt="Delivery" />
                         <h3>Fast, free delivery</h3>
                         <p>Enjoy Same-Day, One-Day, and Two-Day Delivery on millions of items.</p>
                     </div>
                     <div className="prime__benefitCard">
-                        <img src="/images/prime_video.png" alt="Video" />
+                        <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=200&h=150&fit=crop&crop=center" alt="Video" />
                         <h3>Popular movies & shows</h3>
                         <p>New releases. Award-winning Amazon Originals. Watch what you love.</p>
                     </div>
                     <div className="prime__benefitCard">
-                        <img src="/images/prime_deals.png" alt="Deals" />
+                        <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=200&h=150&fit=crop&crop=entropy&cs=tinysrgb" alt="Deals" />
                         <h3>Exclusive deals & savings</h3>
                         <p>Enjoy daily deals on thousands of items and access exclusive savings events.</p>
                     </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ProductDetail.css';
 import { useParams } from 'react-router-dom';
 import products from '../../utils/productData';
+import ProductViewer3D from '../../components/ProductViewer3D/ProductViewer3D';
 import { useStateValue } from '../../StateProvider';
 import StarIcon from '@mui/icons-material/Star';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -12,14 +13,11 @@ function ProductDetail() {
     const { productId } = useParams();
     const [product, setProduct] = useState(null);
     const [{ basket }, dispatch] = useStateValue();
-    const [mainImage, setMainImage] = useState('');
-    const [selectedThumbnail, setSelectedThumbnail] = useState(0);
 
     useEffect(() => {
         const found = products.find(p => p.id === productId);
         if (found) {
             setProduct(found);
-            setMainImage(found.image);
             // Scroll to top
             window.scrollTo(0, 0);
         }
@@ -48,11 +46,6 @@ function ProductDetail() {
 
     if (!product) return <div className="productDetail__loading">Loading...</div>;
 
-    // Use product.images if available, otherwise fallback to repeating main image
-    const images = product.images && product.images.length > 0
-        ? product.images
-        : [product.image, product.image, product.image, product.image];
-
     const features = [
         "Experience premium quality with exceptional durability.",
         "Designed for high performance and everyday utility.",
@@ -64,29 +57,14 @@ function ProductDetail() {
     return (
         <div className="productDetail">
             <div className="productDetail__container">
-                {/* Left Column: Gallery */}
+                {/* Left Column: 3D Product Viewer */}
                 <div className="productDetail__gallery">
-                    <div className="productDetail__thumbnails">
-                        {images.map((img, index) => (
-                            <div
-                                key={index}
-                                className={`productDetail__thumbnail ${selectedThumbnail === index ? 'selected' : ''}`}
-                                onMouseEnter={() => {
-                                    setMainImage(img);
-                                    setSelectedThumbnail(index);
-                                }}
-                            >
-                                <img src={img} alt="" />
-                            </div>
-                        ))}
-                        {/* Mock Video Thumbnail */}
-                        <div className="productDetail__thumbnail video">
-                            <span style={{ fontSize: '10px', fontWeight: 'bold', color: '#555' }}>VIDEO</span>
-                        </div>
-                    </div>
-                    <div className="productDetail__mainImageContainer">
-                        <img src={mainImage} alt={product.title} className="productDetail__mainImage" />
-                    </div>
+                    <ProductViewer3D
+                        product={product}
+                        mode="detail"
+                        size="large"
+                        autoRotate={false}
+                    />
                 </div>
 
                 {/* Middle Column: Info */}
@@ -152,7 +130,13 @@ function ProductDetail() {
                     <div className="productDetail__location">
                         <LocationOnIcon style={{ fontSize: 16 }} /> Deliver to User - Pincode
                     </div>
-                    <h3 className="productDetail__stockStatus">In stock</h3>
+                    {product.stock > 10 ? (
+                        <h3 className="productDetail__stockStatus" style={{ color: '#007600' }}>In stock</h3>
+                    ) : product.stock > 0 ? (
+                        <h3 className="productDetail__stockStatus" style={{ color: '#B12704' }}>Only {product.stock} left in stock - order soon.</h3>
+                    ) : (
+                        <h3 className="productDetail__stockStatus" style={{ color: '#B12704' }}>Currently Unavailable.</h3>
+                    )}
 
                     <button className="productDetail__addToCartBtn" onClick={addToBasket}>Add to Cart</button>
                     <button className="productDetail__buyNowBtn">Buy Now</button>

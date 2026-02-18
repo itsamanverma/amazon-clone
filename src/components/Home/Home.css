@@ -48,6 +48,59 @@
     padding: 0 10px;
     opacity: 0.5;
     transition: opacity 0.2s;
+}
+
+/* Banner Loading State */
+.home__bannerLoading {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.home__bannerLoadingContent {
+    text-align: center;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.home__bannerLoadingContent .spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #ff9900;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px auto;
+}
+
+.home__bannerLoadingContent p {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.home__bannerLoadingContent small {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.home__arrow {
     height: 200px;
     /* Larger hit area */
     display: flex;
@@ -160,4 +213,79 @@
     z-index: 1;
     position: relative;
     /* To be above banner mask if needed, though rows are handled */
+}
+
+/* Loading States */
+.home__loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    padding: 2rem;
+}
+
+.home__loadingSpinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #ff9900;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.home__loadingSpinner p {
+    color: #666;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Error States */
+.home__error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    padding: 2rem;
+}
+
+.home__errorMessage {
+    text-align: center;
+    padding: 2rem;
+    background: #fff5f5;
+    border: 2px solid #fed7d7;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.home__errorMessage h3 {
+    color: #e53e3e;
+    margin: 0 0 1rem 0;
+    font-size: 18px;
+}
+
+.home__errorMessage button {
+    background: #ff9900;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.home__errorMessage button:hover {
+    background: #e68900;
 }

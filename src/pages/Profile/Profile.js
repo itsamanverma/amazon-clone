@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './Profile.css';
 import { useStateValue } from '../../StateProvider';
-import { auth, db } from '../../firebase';
-import { updateProfile, updateEmail, signOut } from 'firebase/auth';
+import { db } from '../../firebase';
+import { updateProfile, updateEmail } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import products from '../../utils/productData';
 
 function Profile() {
-    const [{ user }, dispatch] = useStateValue();
+    const [{ user }] = useStateValue();
     const navigate = useNavigate();
 
     const [name, setName] = useState('');
@@ -20,6 +21,20 @@ function Profile() {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const [editMode, setEditMode] = useState(false);
+
+    const [activeSection, setActiveSection] = useState(null);
+    const [historyProducts, setHistoryProducts] = useState([]);
+    const [relatedProducts, setRelatedProducts] = useState([]);
+
+    useEffect(() => {
+        const shuffled = [...products].sort(() => 0.5 - Math.random());
+        setHistoryProducts(shuffled.slice(0, 4));
+        setRelatedProducts(shuffled.slice(4, 9));
+    }, []);
+
+    const toggleSection = (section) => {
+        setActiveSection(activeSection === section ? null : section);
+    };
 
     useEffect(() => {
         if (user) {
@@ -116,13 +131,6 @@ function Profile() {
             setLoading(false);
         }
     };
-
-    const handleSignOut = () => {
-        if (user) {
-            signOut(auth);
-            navigate('/');
-        }
-    }
 
     return (
         <div className="profile">
@@ -239,20 +247,47 @@ function Profile() {
                         <div className="profile__sectionCard">
                             <h3>About you</h3>
 
-                            <div className="profile__preferenceRow">
-                                <span>Preferred department</span>
-                                <span className="arrow-down">⌵</span>
-                            </div>
-                            <div className="profile__preferenceRow">
-                                <span>Height and weight</span>
-                                <span className="arrow-down">⌵</span>
-                            </div>
-                            <div className="profile__preferenceRow">
-                                <span>Age group</span>
-                                <span className="arrow-down">⌵</span>
+                            <div className="profile__preferenceGroup">
+                                <div className="profile__preferenceRow" onClick={() => toggleSection('dept')}>
+                                    <span>Preferred department</span>
+                                    <span className={`arrow-down ${activeSection === 'dept' ? 'open' : ''}`}>⌵</span>
+                                </div>
+                                {activeSection === 'dept' && (
+                                    <div className="profile__accordionContent">
+                                        <p>Select your preferred department to get better recommendations.</p>
+                                        <button className="profile__addBtn">Add</button>
+                                    </div>
+                                )}
                             </div>
 
-                            <h3>Department preferences</h3>
+                            <div className="profile__preferenceGroup">
+                                <div className="profile__preferenceRow" onClick={() => toggleSection('height')}>
+                                    <span>Height and weight</span>
+                                    <span className={`arrow-down ${activeSection === 'height' ? 'open' : ''}`}>⌵</span>
+                                </div>
+                                {activeSection === 'height' && (
+                                    <div className="profile__accordionContent">
+                                        <p>Height: --</p>
+                                        <p>Weight: --</p>
+                                        <button className="profile__addBtn">Add</button>
+                                    </div>
+                                )}
+                            </div>
+
+                            <div className="profile__preferenceGroup">
+                                <div className="profile__preferenceRow" onClick={() => toggleSection('age')}>
+                                    <span>Age group</span>
+                                    <span className={`arrow-down ${activeSection === 'age' ? 'open' : ''}`}>⌵</span>
+                                </div>
+                                {activeSection === 'age' && (
+                                    <div className="profile__accordionContent">
+                                        <p>--</p>
+                                        <button className="profile__addBtn">Add</button>
+                                    </div>
+                                )}
+                            </div>
+
+                            <h3 style={{ marginTop: '30px' }}>Department preferences</h3>
                             <p className="profile__smallText">Share preferences for each department to get improved recommendations when you shop there.</p>
 
                             <div className="profile__subTabs">
@@ -286,16 +321,48 @@ function Profile() {
 
                             <button className="profile__saveInterestBtn">Save</button>
                         </div>
+                    </div>
 
-                        {/* Keep old details for reference or remove if strictly following UI? 
-                            I will keep them below in a 'Account Details' section just in case user needs them.
-                        */}
-                        <div className="profile__sectionCard">
-                            <h3>Account Details</h3>
-                            <p><strong>Email:</strong> {email}</p>
-                            <p><strong>Mobile:</strong> {mobile || 'Not set'}</p>
-                            <p><strong>Address:</strong> {address.street ? `${address.street}, ${address.city} ${address.pincode}` : 'Not set'}</p>
-                            <button className="profile__signOutButton" onClick={handleSignOut} style={{ marginTop: '10px' }}>Sign Out</button>
+                    <div className="profile__historySection">
+                        <h3>Customers who viewed items in your browsing history also viewed</h3>
+                        <div className="profile__historyGrid">
+                            {relatedProducts.map(item => (
+                                <Link to={`/product/${item.id}`} key={item.id} className="profile__historyCard">
+                                    <img src={item.image} alt={item.title} />
+                                    <div className="profile__historyInfo">
+                                        <p className="profile__historyTitle">{item.title?.substring(0, 40)}...</p>
+                                        <div className="profile__historyRating">
+                                            {Array(item.rating).fill().map((_, i) => (
+                                                <span key={i}>⭐</span>
+                                            ))}
+                                        </div>
+                                        <p className="profile__historyPrice">₹{Number(item.price).toLocaleString()}</p>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="profile__historySection">
+                        <div className="profile__historyHeader">
+                            <h3>Your browsing history</h3>
+                            <Link to="/profile" className="profile__viewHistoryLink">View or edit your browsing history ›</Link>
+                        </div>
+                        <div className="profile__historyGrid">
+                            {historyProducts.map(item => (
+                                <Link to={`/product/${item.id}`} key={item.id} className="profile__historyCard">
+                                    <img src={item.image} alt={item.title} />
+                                    <div className="profile__historyInfo">
+                                        <p className="profile__historyTitle">{item.title?.substring(0, 40)}...</p>
+                                        <div className="profile__historyRating">
+                                            {Array(item.rating).fill().map((_, i) => (
+                                                <span key={i}>⭐</span>
+                                            ))}
+                                        </div>
+                                        <p className="profile__historyPrice">₹{Number(item.price).toLocaleString()}</p>
+                                    </div>
+                                </Link>
+                            ))}
                         </div>
                     </div>
                 </div>

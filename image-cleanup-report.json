@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-02-18T18:56:09.024Z",
+  "summary": {
+    "totalLocalImages": 0,
+    "totalUnusedLocalImages": 0,
+    "totalRemoteUrls": 0,
+    "usedImagesCount": 2
+  },
+  "unusedLocalImages": [],
+  "usedImages": [
+    "png",
+    "jpg"
+  ],
+  "remoteUrls": []
+}

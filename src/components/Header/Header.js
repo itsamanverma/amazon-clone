@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -14,6 +14,15 @@ const Header = () => {
     const [{ basket, user }] = useStateValue();
     const [location, setLocation] = useState({ city: 'Select your', pincode: 'address' });
     const [showProfileModal, setShowProfileModal] = useState(false);
+    const [query, setQuery] = useState('');
+    const navigate = useNavigate();
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (query) {
+            navigate(`/search/${query}`);
+        }
+    };
 
     useEffect(() => {
         // Request location on component mount
@@ -104,8 +113,11 @@ const Header = () => {
                         type="text"
                         className="header__searchInput"
                         placeholder="Search Amazon in"
+                        value={query}
+                        onChange={e => setQuery(e.target.value)}
+                        onKeyDown={e => e.key === 'Enter' && handleSearch(e)}
                     />
-                    <div className="header__searchIconContainer">
+                    <div className="header__searchIconContainer" onClick={handleSearch}>
                         <SearchIcon className="header__searchIcon" />
                     </div>
                 </div>
@@ -113,7 +125,7 @@ const Header = () => {
                 {/* Header Nav Links */}
                 <div className="header__nav">
                     <div className="header__option header__userOption">
-                        <Link to={!user ? "/login" : "/profile"} className="header__link">
+                        <Link to={!user ? "/login" : "/account"} className="header__link">
                             <span className="header__optionLineOne">
                                 Hello, {getUserName()}
                             </span>
@@ -133,7 +145,7 @@ const Header = () => {
                                         </div>
                                         <div className="nav__buyAgainList">
                                             <div className="nav__buyAgainItem">
-                                                <img src="/images/pro_headphones.png" alt="Headphones" />
+                                                <img src="https://m.media-amazon.com/images/I/81Fb_-XfzeL._AC_SX200_.jpg" alt="Headphones" />
                                                 <div className="nav__buyAgainDetails">
                                                     <p>Sony Headphones</p>
                                                     <span className="nav__price">₹990.00</span>
@@ -141,7 +153,7 @@ const Header = () => {
                                                 </div>
                                             </div>
                                             <div className="nav__buyAgainItem">
-                                                <img src="/images/pro_shoes.png" alt="Shoes" />
+                                                <img src="https://m.media-amazon.com/images/I/71UwxF4bK3L._AC_SX200_.jpg" alt="Shoes" />
                                                 <div className="nav__buyAgainDetails">
                                                     <p>Running Shoes</p>
                                                     <span className="nav__price">₹799.00</span>
@@ -183,7 +195,7 @@ const Header = () => {
                                     </div>
                                     <div className="nav__col nav__borderLeft">
                                         <h3>Your Account</h3>
-                                        <Link to="/profile">Your Account</Link>
+                                        <Link to="/account">Your Account</Link>
                                         <Link to="/orders">Your Orders</Link>
                                         <Link to="/wishlist">Your Wish List</Link>
                                         <Link to="/profile">Keep shopping for</Link>
@@ -206,7 +218,7 @@ const Header = () => {
                             </div>
                         </div>
 
-                        <Link to={!user ? "/login" : "/profile"} className="header__link mobile-only">
+                        <Link to={!user ? "/login" : "/account"} className="header__link mobile-only">
                             <PersonOutlineIcon className="header__userIconMobile" />
                         </Link>
                     </div>

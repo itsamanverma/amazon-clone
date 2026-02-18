@@ -1,0 +1,237 @@
+/* Amazon-Style Product Viewer 3D */
+
+.product-viewer-3d {
+    position: relative;
+    width: 100%;
+    background: transparent;
+    /* No borders or shadows on main container */
+}
+
+/* Detail Layout */
+.mode-detail {
+    min-height: 500px;
+}
+
+.detail-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    /* Thumbnails stick to top */
+}
+
+/* Thumbnail Column - Left Side */
+.thumbnail-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 60px;
+    /* Fixed width for standard thumbnails */
+    flex-shrink: 0;
+}
+
+.thumbnail-item {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #a2a6ac;
+    /* Amazon Grey Border */
+    border-radius: 2px;
+    cursor: pointer;
+    overflow: hidden;
+    background: white;
+    transition: all 0.1s ease-in-out;
+    padding: 2px;
+    /* Slight padding inside border */
+    box-sizing: border-box;
+}
+
+/* Interaction States for Thumbnails */
+.thumbnail-item:hover,
+.thumbnail-item.active {
+    border-color: #e77600;
+    /* Amazon Orange */
+    box-shadow: 0 0 3px 2px rgba(228, 121, 17, 0.5);
+    /* Orange Glow */
+}
+
+.thumbnail-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Main Image Area */
+.main-image-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    min-height: 500px;
+    /* Large display area */
+    overflow: hidden;
+}
+
+.product-image {
+    max-width: 100%;
+    max-height: 600px;
+    /* Ensure logical height limit */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: opacity 0.2s ease;
+    cursor: crosshair;
+    /* Suggests zoom capability */
+}
+
+/* Loading/Error States */
+.image-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #565959;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #e77600;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.image-error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(248, 249, 250, 0.95);
+    padding: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 200px;
+}
+
+.error-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+    opacity: 0.7;
+}
+
+.error-text strong {
+    display: block;
+    color: #dc3545;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.error-text small {
+    display: block;
+    color: #6c757d;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.thumb-placeholder {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
+    border: 1px solid #dee2e6;
+}
+
+/* Hide indicators or fancy elements for strict Amazon look */
+.angle-indicator {
+    display: none;
+}
+
+.auto-rotate-btn {
+    display: none;
+    /* Hide unless requested */
+}
+
+/* List/Card Mode (Preserve simple layout for listings) */
+.mode-list .image-container {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.mode-list .product-image {
+    max-height: 100%;
+    max-width: 100%;
+    cursor: pointer;
+}
+
+/* List Badges */
+.product-info-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    z-index: 2;
+}
+
+.product-badge {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.badge {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 6px;
+    color: white;
+    border-radius: 2px;
+}
+
+.badge.new {
+    background-color: #232f3e;
+}
+
+/* Best Seller styling often varied, keeping simple */
+.badge.bestseller {
+    background-color: #e67a00;
+    border-radius: 2px 0 0 2px;
+}
+
+.badge.deal {
+    background-color: #cc0c39;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .detail-layout {
+        flex-direction: column-reverse;
+        /* Stack thumbnails under on small screens? Or scrollable row */
+    }
+
+    .thumbnail-column {
+        flex-direction: row;
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+
+    .main-image-container {
+        min-height: 300px;
+    }
+}

@@ -1,0 +1,383 @@
+.isc-toggle {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 1000;
+    background: linear-gradient(135deg, #ff9900, #ffad33);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(255, 153, 0, 0.3);
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.isc-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 153, 0, 0.4);
+}
+
+.isc-panel {
+    position: fixed;
+    top: 120px;
+    right: 20px;
+    width: 420px;
+    max-height: 650px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+    overflow: hidden;
+    border: 1px solid #e1e8ed;
+}
+
+.isc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.isc-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.isc-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.isc-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.isc-content {
+    padding: 20px;
+    max-height: 550px;
+    overflow-y: auto;
+}
+
+/* Status Section */
+.isc-status {
+    margin-bottom: 24px;
+}
+
+.isc-current-source {
+    margin-bottom: 12px;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #ff9900;
+}
+
+.isc-source {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-left: 8px;
+    font-size: 13px;
+}
+
+.isc-source--unsplash {
+    background: #ff6b6b;
+    color: white;
+}
+
+.isc-source--firebase {
+    background: #4facfe;
+    color: white;
+}
+
+.isc-source--checking {
+    background: #ffc107;
+    color: #212529;
+}
+
+.isc-source--unknown {
+    background: #6c757d;
+    color: white;
+}
+
+.isc-info {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.isc-info p {
+    margin: 0;
+}
+
+.isc-info--warning {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    color: #856404;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 12px;
+}
+
+.isc-info--success {
+    background: #d4edda;
+    border: 1px solid #28a745;
+    color: #155724;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 12px;
+}
+
+/* Actions Section */
+.isc-actions {
+    margin-bottom: 24px;
+}
+
+.isc-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.isc-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.isc-button--primary {
+    background: linear-gradient(135deg, #ff9900, #ffad33);
+    color: white;
+}
+
+.isc-button--primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 153, 0, 0.3);
+}
+
+.isc-button--secondary {
+    background: #6c757d;
+    color: white;
+    font-size: 12px;
+    padding: 10px;
+}
+
+.isc-button--secondary:hover:not(:disabled) {
+    background: #545b62;
+}
+
+.isc-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Firebase Active State */
+.isc-firebase-active {
+    text-align: center;
+    padding: 20px;
+    background: #d4edda;
+    border-radius: 8px;
+    border-left: 4px solid #28a745;
+}
+
+.isc-check-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.isc-firebase-active p {
+    margin: 0 0 16px 0;
+    font-weight: 500;
+    color: #155724;
+}
+
+/* Migration Info */
+.isc-migration-info {
+    background: #e8f5e8;
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 4px solid #4caf50;
+    margin-top: 16px;
+}
+
+.isc-migration-info h4 {
+    margin: 0 0 12px 0;
+    color: #2e7d32;
+    font-size: 14px;
+}
+
+.isc-migration-info ul {
+    margin: 0;
+    padding-left: 16px;
+    font-size: 13px;
+    color: #424242;
+    line-height: 1.6;
+}
+
+.isc-migration-info li {
+    margin-bottom: 6px;
+}
+
+/* Progress Section */
+.isc-progress {
+    margin-bottom: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.isc-progress--active {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    color: #856404;
+}
+
+.isc-progress--complete {
+    background: #d4edda;
+    border: 1px solid #28a745;
+    color: #155724;
+}
+
+.isc-progress-text {
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+.isc-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.3), transparent);
+    animation: progressSlide 2s ease-in-out infinite;
+}
+
+@keyframes progressSlide {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Results Section */
+.isc-results {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 4px solid #17a2b8;
+}
+
+.isc-results h4 {
+    margin: 0 0 16px 0;
+    color: #0c5460;
+    font-size: 16px;
+}
+
+.isc-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.isc-stat {
+    text-align: center;
+    padding: 12px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.isc-stat-number {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff9900;
+    line-height: 1;
+}
+
+.isc-stat-label {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.isc-success {
+    background: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .isc-toggle {
+        top: 60px;
+        right: 10px;
+        font-size: 12px;
+        padding: 10px 12px;
+    }
+    
+    .isc-panel {
+        top: 100px;
+        right: 10px;
+        left: 10px;
+        width: auto;
+    }
+    
+    .isc-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .isc-header {
+        padding: 16px;
+    }
+    
+    .isc-header h3 {
+        font-size: 16px;
+    }
+    
+    .isc-content {
+        padding: 16px;
+    }
+}

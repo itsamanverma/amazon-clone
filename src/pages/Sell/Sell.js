@@ -13,7 +13,7 @@ function Sell() {
                     <button className="sell__ctaButton">Start Selling</button>
                 </div>
                 <img
-                    src="/images/abc_seller_hero.png"
+                    src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=entropy&cs=tinysrgb"
                     alt="Amazon Seller"
                     className="sell__heroImage"
                 />
